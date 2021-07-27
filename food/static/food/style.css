@@ -1,0 +1,213 @@
+body{
+background-color:RGB(220, 219, 219);
+background:RGB(220, 219, 219) url("images/backgrohdund.jpg");
+background-repeat:no-repeat;
+background-size:cover;
+padding:0px;
+
+
+}
+
+
+#rback{
+background-color:RGB(220, 219, 219);
+margin-top:100px;
+
+}
+
+/*.dropdown:hover>.dropdown-menu{
+display:block;
+}*/
+
+
+
+.m-container{
+width:400px;
+height:500px;
+position:relative;
+transform:translate(-50%,-50%);
+border:10px solid #fff;
+overflow:hidden;
+}
+
+.box{
+width:400px;
+height:500px;
+background-position:center;
+background-size:cover;
+transition:.8s;
+
+
+}
+.m-container:hover .box{
+transform:scale(1.2);
+}
+
+
+.t-img{
+height:130px;
+width: 50px;;
+}
+
+.nav{
+  color: #335;
+  z-index:2;
+}
+#dnav{
+
+z-index:10;
+}
+.thumbnail{
+color:RGB(220, 219, 219);
+
+}
+
+
+.well {
+min-height: 20px;
+padding: 1px;
+margin-bottom: 20px;
+padding-left:2px;
+
+}
+
+
+	 .sticky1 {
+	position: sticky;
+  z-index:100;
+	margin-top:0;
+	top:0px;
+
+	color:;
+	width:100%;
+	text-align:;
+	}
+
+#sbtni{
+min-width:;
+margin-left:auto;
+margin-right:0px;
+}
+
+#slider-div1{
+margin-top:20px; margin-left:0px;margin-right:0px;
+}
+
+
+
+.fixed-bg2 {
+  background-image: url("images/mainbg3.jpg");
+  min-height: 300px;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.fixed-bg {
+  background-image: url("images/mainbg3.jpg");
+  min-height: 600px;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding:0;
+}
+
+
+
+.sbtnf{
+
+}
+
+
+
+
+
+@media only screen and ( max-width:1150px){
+
+#sbtni{
+min-width:550px;
+margin-left:1px;
+}
+}
+
+
+
+
+
+
+
+@media only screen and (min-width:1150.9843px){
+
+#sbtni{
+min-width:700px;
+margin-left:70px;
+}
+}
+
+
+
+@media only screen and ( max-width:930px){
+
+#sbtni{
+min-width:380px;
+margin-left:40px;
+}
+}
+
+
+@media only screen and ( max-width:650px){
+
+
+
+
+
+#sbtni{
+max-width:500px;
+margin-left:1px;
+}
+#slider-div1{
+margin-top:10px;
+margin-right:1px;
+margin-left:1px;
+}
+
+.ig-slider{
+max-height:300px;
+}
+
+.dnav{
+position:fixed;
+top:0;
+}
+
+
+
+.fixed1{
+position: sticky;
+  z-index:100;
+	margin-top:0;
+	top:0px;
+
+	color:;
+	width:100%;
+	text-align:;
+}
+
+.t-img{
+height:16px;
+width:20px;
+}
+
+
+}
+
+
+
+@media only screen and ( max-width:340px){
+.f-col{
+width:50px;
+background:white;
+}
+}

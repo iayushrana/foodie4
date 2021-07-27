@@ -1,0 +1,73 @@
+{% extends 'food/base.html' %}
+{% block title %}{{ album }}{% endblock %}
+
+
+{% block body %}
+
+
+<div class="container-fluid albums-container" style="margin-top:30px;">
+
+    <div class="row">
+
+        <!-- Left Album Info -->
+        <div class="col-sm-4 col-md-3">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                                       <a href="{% url 'food:detail' album.id %}">
+                    <div style="overflow:hidden; " class="i-area">
+                            <img src="{{ album.logo.url }}" class="img-responsive" style="height:200px; width:100%;">
+                    </div>
+                        </a>
+
+
+                    <h1>{{ album.name }} <small>{{ album.amount }}</small></h1>
+                    <h2>{{ album.description }}</h2>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Song Info -->
+        <div class="col-sm-8 col-md-9">
+
+            <ul class="nav nav-pills" style="margin-bottom: 10px;">
+  <form action="{% url 'food:cart_add' album.id %}" method="post">
+                                {% csrf_token %}
+                                {{ cart_product_form }}
+                                <input type="submit" value="add to cart" class="btn btn-primary">
+                            </form>
+
+
+              </ul>
+
+            <div class="panel panel-default">
+                <div class="panel-body">
+
+                    <h2>{{album.name}} ({{ album.nick_names  }})</h2>
+                    <hr style="height:4px;">
+
+                    {% if error_message %}
+                        <p><strong>{{ error_message }}</strong></p>
+                    {% endif %}
+
+                    <h2>{{ album.description }}
+                   <br><br><s>before Price: {{ album.b_price }} </s>
+                        <br></br>Now={{ album.price }}</h2>
+
+                </div>
+            </div>
+               <ul class="nav nav-pills" style="margin-bottom: 10px;">
+
+
+                <li role="presentation" class="active"><a href="{% url 'food:sfood'  %}">View All Fruits & vegetables</a></li>
+
+
+
+              </ul>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

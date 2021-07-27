@@ -1,0 +1,260 @@
+    {% extends 'food/base.html' %}
+
+{% load staticfiles %}
+
+    {% block basel %}
+   <link rel="stylesheet" type="text/css" href="{% static 'food/owl.carousel.css' %}"/>
+   <link rel="stylesheet" type="text/css" href="{% static 'food/owl.theme.default.css' %}"/>
+   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.min.css"/>
+
+    {% endblock %}
+
+
+
+
+{% block albums_active %}active{% endblock %}
+
+
+{% block body %}
+<style>
+    body{
+    background:#009fdc;
+    font-family:poppins;
+  }
+  .wrapper{
+    width:1170px;
+    margin:0 auto;
+    }
+
+   .section-padding{
+   padding:60px 0;
+   }
+
+   .testimonial-carousel{
+    margin:5% auto;
+
+   }
+   .img-area{
+   height:150px;
+   width:150px;
+   overflow:hidden;
+   border-radius:50%;
+   margin:0 auto;
+
+   }
+.img-area img{
+width:100%;
+}
+.single-testi{
+background:#fff;
+padding:10%;
+text-align:center;
+border-radius:100px 0 100px 0;
+}
+
+.img-text h2{
+text-transform:uppercase;
+margin:20px 0 -15px;
+color:#ff5257;
+}
+
+.img-text i{
+color:#ff5257
+}
+hr{
+color:#ff5257;
+}
+.owl-dots{
+text-align:center;
+}
+.owl-dot{
+display:inline-block;
+height:15px !important;
+width:15px !important;
+background-color:white !important;
+opacity:0.8;
+border-radius:50%;
+margin:50px 5px 0;
+}
+
+.owl-dot.active{
+background-color:#ff5257 !important;
+}
+
+@media only screen and (min-width: 768px) and (max-width:991px){
+.wrapper{
+width:95%;
+}
+}
+
+@media only screen and (max-width:767px){
+.wrapper{
+width:95%;
+
+}
+}
+@media only screen and (min-width: 480px) and (max-width:767px){
+.wrapper{
+width:95%;
+}
+}
+</style>
+{% if food == "contact" %}
+<div class="container" style="margin-left:10%;">
+    <h2>
+        Contact Us At
+    </h2>
+    <h3>
+        Email:ayush@gmail.com<br><br>
+        Phone_no:8395911565
+    </h3>
+        <hr><hr style="">
+
+</div>
+    {% endif %}
+
+
+    <div class="wrapper" style=" ">
+    <div class="testimonial-carousel section -padding owl-carousel">
+        <div class="single-testi">
+        <div class="img-area">
+            <img src="{% static 'food/images/about/img1.jpg' %}" alt="">
+</div>
+            <div class="img-text">
+                <h2>ayush</h2>
+                <h3>enterpreneur</h3>
+                <p>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                </p>
+                <hr>
+                <p>ver proffesional and recommeneded</p>
+            </div>
+
+
+        </div>
+        <div class="single-testi">
+        <div class="img-area">
+            <img src="{% static 'food/images/about/img2.jpg' %}" alt="">
+</div>
+            <div class="img-text">
+                <h2>ayush</h2>
+                <h3>enterpreneur</h3>
+                <p>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                </p>
+                <hr>
+                <p>ver proffesional and recommeneded</p>
+        </div>
+
+        </div>
+        <div class="single-testi">
+        <div class="img-area">
+            <img src="{% static 'food/images/about/img3.jpg' %}" alt="">
+        </div>
+            <div class="img-text">
+                <h2>ayush</h2>
+                <h3>enterpreneur</h3>
+                <p>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                </p>
+                <hr>
+                <p>ver proffesional and recommeneded</p>
+
+        </div>
+
+        </div>
+        <div class="single-testi">
+        <div class="img-area">
+            <img src="{% static 'food/images/about/img4.jpg' %}" alt="">
+        </div>
+            <div class="img-text">
+                <h2>ayush</h2>
+                <h3>enterpreneur</h3>
+                <p>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                </p>
+                <hr>
+                <p>ver proffesional and recommeneded</p>
+        </div>
+
+        </div>
+        <div class="single-testi">
+        <div class="img-area">
+            <img src="{% static 'food/images/about/img5.jpg' %}" alt="">
+        </div>
+            <div class="img-text">
+                <h2>ayush</h2>
+                <h3>enterpreneur</h3>
+                <p>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                </p>
+                <hr>
+
+                <p>ver proffesional and recommeneded</p>
+        </div>
+
+        </div>
+
+
+    </div>
+
+
+
+</div>
+
+<div class="contaienr lead" style="margin-left:20%;">
+    <h4>Call Us At   :  <span class="glyphicon glyphicon-phone" aria-hidden="true"></span>8950385727&nbsp;</h4>
+
+</div>
+
+
+
+
+   {% endblock %}
+
+
+    {% block bases %}
+
+    <script src="{% static 'food/owl.carousel.min.js' %}"></script>
+    <script>
+        $('.testimonial-carousel').owlCarousel({
+    loop:true,
+    margin:20,
+    autoplay:true,
+
+    responsive:{
+        0:{
+            items:1
+        },
+        600:{
+            items:2
+        },
+        1000:{
+            items:3
+        }
+    }
+})
+
+
+    </script>
+{% endblock %}

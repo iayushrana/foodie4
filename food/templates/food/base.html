@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>{% block title %}Vegetables {% endblock %}</title>
+
+    <!--loads   the  to your static file-->
+{% load staticfiles %}
+
+
+  {% block basel %}
+
+{% endblock %}
+
+
+     <link rel="shortcut icon" type="image/png" href="{%  static 'food/images/icons/title.png' %}" >
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+    <link href='https://fonts.googleapis.com/css?family=Satisfy' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="{% static 'food/style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'food/Footer-with-map.css' %}">
+
+
+
+</head>
+<body>
+<nav class="nav navbar-inverse fixed1">
+
+    <div class="container-fluid  ">
+
+        <!--logo -->
+
+       <div class="navbar-header ">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#topNavBar1 ">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+           <button type="button" class="navbar-toggle btn-info" data-toggle="collapse" data-target="#topNavBar ">
+                    <span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;
+           </button>
+
+            <a class="navbar-brand" href="{% url 'main' %}">Sniccy  &nbsp <small><small>Fresh, Low price,FastDelivery,....</small></small>{% comment %}<img src="{% static 'food/images/icons/wname3.png' %}" style="margin-top:0px; height:60px; width:150px;">{% endcomment %}</a>
+        </div>
+
+
+
+        <!-- Items inside navbar -->
+    <div class="collapse navbar-collapse" id="topNavBar">
+
+        <div class="col-lg- navbar-right ">
+             <ul class="nav navbar-nav">
+
+
+
+             <li class="dropdown bg-dark">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">About Us <span class="caret"></span></a>
+
+             <ul class="dropdown-menu bg-dark">
+
+
+                 <li class="">
+                <a href="{% url 'food:about_us' %}">
+                    <span class="glyphicon glyphicon-cutlery" aria-hidden="true"></span>&nbsp;About
+                </a>
+            </li>
+                          <li role="separator" class="divider"></li>
+
+
+
+
+            <li class="">
+
+ <a href="{% url 'food:contact_us' %}">
+                    <span class="glyphicon glyphicon-phone" aria-hidden="true"></span>&nbsp; Contact Us
+                </a>
+            </li>
+
+          </ul>
+        </li>
+
+
+
+
+    {% if user.is_authenticated %}
+            <li class="">
+
+ <a href="{% url 'logout_user' %}">
+                    <span class="glyphicon glyphicon-off" aria-hidden="true"></span>&nbsp; LogOut
+                </a>
+            </li>
+
+                {% else %}
+
+
+             <li class="dropdown bg-dark">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Log In<span class="caret"></span></a>
+
+             <ul class="dropdown-menu bg-dark" style="border-radius:20px;">
+
+            <li class="">
+
+ <a href="{% url 'login_user' %}">
+                    <span class="glyphicon glyphicon-off" aria-hidden="true"></span>&nbsp; LogIn
+                </a>
+            </li>
+
+                                           <li role="separator" class="divider"></li>
+
+
+            <li class="">
+
+ <a href="{% url 'register' %}">
+                    <span class="glyphicon glyphicon-off" aria-hidden="true"></span>&nbsp; Sign Up
+                </a>
+            </li>
+
+             </ul>
+             </li>
+
+
+            {% endif %}
+
+
+
+             </ul>
+        </div>
+    </div>
+    </div>
+    </nav>
+
+<nav class="nav navbar-inverse sticky1 fixed1">
+
+
+    <div class="collapse navbar-collapse" id="topNavBar1">
+<div class="col-12 sticky1 ">
+        <ul class="nav navbar-nav">
+            <li class="">
+                <a href="{% url 'food:vegetables' %}">
+                    <span class="glyphicon glyphicon-cutlery" aria-hidden="true"></span>&nbsp;Vegetables
+                </a>
+            </li>
+
+            <li class="">
+                <a href="{% url 'food:fruits' %}">
+                    <span class="glyphicon glyphicon-apple" aria-hidden="true"></span>&nbsp;Fruit
+                </a>
+            </li>
+
+
+        </ul>
+<div class="">
+        <form class="navbar-form navbar-left sbtnf"  role="search" method="get" action="{% url 'food:sfood' %}">
+
+            <div class="form-group ">
+            <input type="text" class="form-control" id="sbtni" name="q" value="{{ request.GET.q }}" placeholder="Search...">
+            </div>
+
+            <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search" aria-hidden="true"></span>&nbsp;</button>
+        </form>
+
+</div>
+
+
+        <ul class="nav navbar-nav navbar-right">
+
+
+                                <li class="bg-dark">
+                <a href="{% url 'food:cart_detail' %}">
+                    <span class="glyphicon glyphicon-shopping-cart"  aria-hidden="true"></span>&nbsp;My Cart
+                </a>
+            </li>
+
+
+
+                     <li >
+                <a href="{% url 'orders:your_order' %}">
+                    <span class="glyphicon glyphicon-shopping-cart"  aria-hidden="true"></span>&nbsp;My Orders
+                </a>
+            </li>
+
+
+
+
+            <li class="">
+
+            </li>
+        </ul>
+</div>
+    </div>
+
+</nav>
+
+
+
+
+
+{% block body %}
+{% endblock %}
+
+
+
+
+    <footer id="myFooter">
+        <div class="container">
+            <div class="row">
+
+<div style="text-align:center; padding-right:2%; padding-left:auto;">
+                <div class="col-sm-4 col-lg-4">
+
+           <button type="button" class="navbar-toggle btn-info f-col" data-toggle="collapse" data-target="#topNavBar4">
+ <h5>About us</h5>
+           </button>
+
+            <!-- Items inside navbar -->
+    <div class="collapse navbar-collapse" id="topNavBar4">
+
+             About us
+
+              <ul class="nav navbar-na">
+                        <li><a href="{% url 'food:about_us' %}">Company Information</a></li>
+                        <li><a href="{% url 'food:contact_us' %}">Contact us</a></li>
+                    </ul>
+				</div>
+				</div>
+
+
+
+
+
+                <div class="col-sm-4 col-lg-4">
+                    <button type="button" class="navbar-toggle btn-info f-col" data-toggle="collapse" data-target="#topNavBar2">
+ <h5>Legal</h5>
+           </button>
+
+            <!-- Items inside navbar -->
+    <div class="collapse navbar-collapse" id="topNavBar2">
+         Legal
+            <ul class="nav navbar-na">
+                        <li><a href="{% url 'food:fruits' %}">Terms of Service</a></li>
+                        <li><a href="{% url 'food:fruits' %}">Terms of Use</a></li>
+                        <li><a href="{% url 'food:fruits' %}">Privacy Policy</a></li>
+                    </ul>
+				</div>
+
+
+
+
+            </div>
+
+                        <div class="col-sm-4 col-lg-4">
+
+
+           <button type="button" class="navbar-toggle btn-info f-col" data-toggle="collapse" data-target="#topNavBar3">
+ <h5>Home</h5>
+           </button>
+
+            <!-- Items inside navbar -->
+    <div class="collapse navbar-collapse" id="topNavBar3">
+
+            Home
+              <ul class="nav navbar-na">
+                        <li><a href="{% url 'main' %}">Home</a></li>
+                        <li><a href="{% url 'register' %}">Sign up</a></li>
+                    </ul>
+				</div>
+    </div>
+            </div>
+				</div>
+
+
+
+            </div>
+
+            <!-- Here we use the Google Embed API to show Google Maps. -->
+            <!-- In order for this to work in your project you will need to generate a unique API key.  -->
+<div style="width: 100%"><iframe width="100%" height="200" src="https://maps.google.com/maps?width=100%&amp;height=200&amp;hl=en&amp;q=holychild%20school%20sonipat%20sectr%201a+(vegiefy)&amp;ie=UTF8&amp;t=&amp;z=16&amp;iwloc=B&amp;output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"><a href="https://www.maps.ie/map-my-route/">Create route map</a></iframe></div><br>
+
+        <!--<div class="social-networks">
+            <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
+            <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
+            <a href="#" class="google"><i class="fa fa-google-plus"></i></a>
+        </div>
+		-->
+        <div class="footer-copyright">
+            <p>© 2016 Copyright Text </p>
+        </div>
+    </footer>
+
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+
+<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+-->
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+{% block bases %}
+
+{% endblock %}
+
+</body>
+</html>
+

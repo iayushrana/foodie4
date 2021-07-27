@@ -1,0 +1,71 @@
+{% extends 'food/base.html' %}
+
+
+
+{% block albums_active %}active{% endblock %}
+
+{% block body %}
+
+
+<div class="albums-container container-fluid">
+
+    <!-- Albums -->
+    <div class="row">
+        <div class="col-sm-12" >
+            <h3>{{ user.username }}'s Albums {{ user.first_name }}</h3>
+        </div>
+
+{% if product %}
+            {% for album in product %}
+                    <div class="col-sm-4 col-lg-3">
+                    <div class="thumbnail">
+                        <!--here i ahe used if statenetn becouse in index view we have to display particular category of fruit or vegtables if vtype means the requet is from veg olumn and fyype means requst from fruit table -->
+                        <a href="{% url 'food:detail' album.id %}">
+                    <div style="overflow:hidden; " class="i-area">
+                            <img src="{{ album.logo.url }}" class="img-responsive" style="height:200px; width:100%;">
+                    </div>
+                        </a>
+
+                        <div class="caption">
+                            <h2>{{ album.name }}<small> ({{ album.nick_names }})</small></h2><small class="pull-right lead"><s>Rs: {{ album.b_price }}</s><br>  Rs: {{ album.price }}/{{ album.weight}} </small>
+                            <h4>{{ album.descriptio }}  </h4>
+
+                            <!-- View Details --
+>
+
+                           <a href="{% url 'food:detail' album.id %}" class="btn btn-primary btn-sm" role="button">View Details</a>!>-->
+<br>
+
+                                      <form action="{% url 'food:cart_add' album.id %}" method="post">
+                                {% csrf_token %}
+                                {{ cart_product_form }}<br>
+                                <input type="submit" value="add to cart" class="btn btn-primary">
+                            </form>
+
+
+                            <!-- Delete Album -->
+
+
+                        </div>
+                    </div>
+                </div>
+                    {% endfor %}
+
+                {% cycle '' '' '' '' '' '<div class="clearfix visible-lg"></div>' %}
+        {% else %}
+            <div class="col-sm-12">
+                <br>
+                not any album
+            </div>
+        {% endif %}
+
+
+
+
+
+
+
+    </div>
+</div>
+    {% endblock %}
+

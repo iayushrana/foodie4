@@ -1,0 +1,525 @@
+    {% extends 'food/base.html' %}
+
+{% load staticfiles %}
+
+    {% block basel %}
+   <link rel="stylesheet" type="text/css" href="{% static 'food/owl.carousel.css' %}"/>
+   <link rel="stylesheet" type="text/css" href="{% static 'food/owl.theme.default.css' %}"/>
+   <link rel="stylesheet" type="text/css" href="{% static 'food/main.css' %}"/>
+
+    {% endblock %}
+
+
+
+
+{% block albums_active %}active{% endblock %}
+
+
+{% block body %}
+
+<div class="container-fluid" style="max-height:450px;">
+    <div id="myslider" class="carousel slide" data-interval="3000" data-ride="carousel">
+    <!-- Carousel indicators -->
+    <ol class="carousel-indicators">
+        <li data-target="#myslider" data-slide-to="0" class="active"></li>
+        <li data-target="#myslider" data-slide-to="1"></li>
+        <li data-target="#myslider" data-slide-to="2"></li>
+    </ol>
+    <!-- Carousel items -->
+    <div class="carousel-inner">
+        <div class="item active">
+          <a href="{% url 'food:fruits' %}" >  <img src="{% static 'food/images/mainbg2.jpg' %}" class="ig-slider" style="max-height:750px; background:cover; width:1600px;" alt="First Slide">
+              <!--<div class="carousel-caption">
+                <h3>First slide label</h3>
+                <p>Lorem ipsum dolor sit amet...</p>
+            </div>-->
+          </a>
+        </div>
+        <div class="item">
+      <a href="{% url 'food:vegetables' %}" >      <img src="{% static 'food/images/mainbg3.jpg' %}" class="ig-slider" style="max-height:750px; background:cover; width:1600px;"  alt="Second Slide">
+      </a>
+        </div>
+        <div class="item">
+      <a href="{% url 'food:vegetables' %}" > <img src="{% static 'food/images/mainbg4.jpg' %}" class="ig=slider" style="max-height:750px; background:cover; width:1600px;"  alt="Third Slide">
+        </a>
+        </div>
+    </div>
+    <!-- Carousel nav -->
+    <a class="carousel-control left" href="#myslider" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left"></span>
+    </a>
+    <a class="carousel-control right" href="#myslider" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right"></span>
+    </a>
+</div>
+</div>
+
+
+
+
+
+
+<div class="albums-container container-fluid">
+
+    <!-- Albums -->
+    <div class="row">
+
+        <div class="col-sm-12">
+            <h3>{{ user.username }}'s Albums {{ user.phone_no }}</h3>
+        </div>
+
+
+
+
+             <div class="col-lg-12">
+    <div class="well well-small">
+               <h5>20%Off.<small class="pull-right"> Check..</small></h5>
+
+        <div class=row-fluid">
+
+ <div class="container-fluid mt-5" id="slider-div5" style="margin-top:00px;">
+        <div class="owl-carousel owl-theme" >
+                {% for album in product %}
+                         {% if album.price >= 34 %}
+
+    <div class="item"  > <a href="{% url 'food:detail' album.id %}">
+
+                            <img src="{{ album.logo.url }}" class="img-responsive img-fluid" style="height:200px; ">
+                        </a>
+    </div>
+            {% endif %}
+            {% endfor %}
+
+
+</div>
+    </div>
+
+                </div>
+    </div>
+
+    </div>
+
+
+
+
+<div id="slider-div3">
+  {% if product %}
+            {% for album in product %}
+    {% if album.price <= 89.00 and album.price >= 35 %}
+                <div class="col-sm-4 col-lg-3">
+                    <div class="thumbnail">
+                        <!--here i ahe used if statenetn becouse in index view we have to display particular category of fruit or vegtables if vtype means the requet is from veg olumn and fyype means requst from fruit table -->
+                        <a href="{% url 'food:detail' album.id %}">
+                    <div style="overflow:hidden; " class="i-area">
+                            <img src="{{ album.logo.url }}" class="img-responsive" style="height:200px; width:100%;">
+                    </div>
+                        </a>
+
+                        <div class="caption">
+                            <h2>{{ album.name }}</h2>
+                            <h4>{{ album.description }}</h4>
+
+                            <!-- View Details -->
+
+                           <a href="{% url 'food:detail' album.id %}" class="btn btn-primary btn-sm" role="button">View Details</a>
+
+
+
+
+                            <!-- Delete Album -->
+
+
+                        </div>
+                    </div>
+                </div>
+                {% cycle '' '' '' '' '' '<div class="clearfix visible-lg "></div>' %}
+    {% endif %}
+            {% endfor %}
+        {% else %}
+            <div class="col-sm-12">
+                <br>
+                not any album
+            </div>
+        {% endif %}
+</div>
+
+
+
+        <div class="col-12 fixed-bg" style="background-color:blue; width:100%">
+
+
+
+             <div class="container-fluid " id="slider-div2" style="margin-top:00px;">
+                    <div class="owl-carousel owl-theme" >
+                           <div class="col-lg-12">
+                        <div class="m-container item">
+                        <div class="box" style="background-image:url('../../static/food/images/mainbg1.jpg');">
+
+
+
+                        </div>
+                        </div>
+                    </div>
+
+
+                         <div class="col-lg-12 item">
+                        <div class="m-container ">
+                        <div class="box" style="background-image:url('../../static/food/images/mainbg2.jpg'); ">
+
+                        </div>
+                        </div>
+                    </div>
+
+
+                         <div class="col-lg-12 item">
+                        <div class="m-container ">
+                        <div class="box" style="background-image:url('../../static/food/images/mainbg3.jpg'); ">
+
+                        </div>
+                        </div>
+                    </div>
+
+
+                         <div class="col-lg-12 item">
+                        <div class="m-container ">
+                        <div class="box" style="background-image:url('../../static/food/images/mainbg4.jpg'); ">
+
+                        </div>
+                        </div>
+                    </div>
+
+            </div>
+    </div>
+
+
+
+<div id="rback">
+    <div class="col-lg-12" id="slider-div1">
+    <div class="well well-small">
+
+       <h4>featured Fruits,,<small class="pull-right"> many fruits</small></h4>
+        <div class=row-fluid">
+            <div id="featured" class="carousel slide" data-interval="3000" data-ride="carousel" >
+                  <ol class="carousel-indicators">
+        <li data-target="#featured" data-slide-to="0" class="active"></li>
+        <li data-target="#featured" data-slide-to="1"></li>
+
+    </ol>
+
+                <div class="carousel-inner">
+                <div class="item active">
+
+                        <ul class="thumbnails">
+                            <li class="col-lg-3">
+                                <div class="thumbnail">
+                                    <i class="tag"></i>
+                                    <a href="#"><img src="{% static 'food/images/mainbg1.jpg' %}"></a>
+                                    <div class="caption">
+                                        <h5>Beats(1)</h5>
+                                        <h4> <a class="btn" href="#">View</a><span class="pull-right">$2.0 </span></h4>
+
+                                    </div>
+                                </div>
+                            </li>
+
+                            <li class="col-lg-3">
+                                <div class="thumbnail">
+                                    <i class="tag"></i>
+                                    <a href="#"><img src="{% static 'food/images/mainbg2.jpg' %} " alt="buy more"></a>
+                                    <div class="caption">
+                                        <h5>Beats(1)</h5>
+                                        <h4> <a class="btn" href="#">View</a><span class="pull-right">$2.0 </span></h4>
+                                    </div>
+                                    </div>
+                            </li>
+
+                            <li class="col-lg-3">
+                                <div class="thumbnail">
+                                    <i class="tag"></i>
+                                    <a href="#"><img src="{% static 'food/images/mainbg3.jpg' %}" alt="buy more"></a>
+                                    <div class="caption">
+                                        <h5>Beats(1)</h5>
+                                        <h4> <a class="btn" href="#">View</a><span class="pull-right">$2.0 </span></h4>
+                                    </div>
+                                    </div>
+                            </li>
+
+                            <li class="col-lg-3">
+                                <div class="thumbnail">
+                                    <i class="tag"></i>
+                                    <a href="#"><img src="{% static 'food/images/mainbg4.jpg' %}" alt="buy more"></a>
+                                    <div class="caption">
+                                        <h5>Beats(1)</h5>
+                                        <h4> <a class="btn" href="#">View</a><span class="pull-right">$2.0 </span></h4>
+                                    </div>
+                                    </div>
+                            </li>
+                        </ul>
+                </div>
+
+
+                        <div class="item">
+                           <ul class="thumbnails"><!-- we are making 2 div ite which ontain 3 thumbanil in a row-->
+                             <li class="col-lg-3">
+                                <div class="thumbnail">
+                                    <i class="tag"></i>
+                                    <a href="#"><img src="{% static 'food/images/mainbg3.jpg' %}" alt="secound slide"></a>
+                                    <div class="caption">
+                                        <h5>power Bank</h5>
+                                        <h4> <a class="btn" href="#">View</a><span class="pull-right">$2.0 </span></h4>
+                                    </div>
+                                    </div>
+
+                            </li>
+
+                            <li class="col-lg-3">
+                                <div class="thumbnail">
+                                    <i class="tag"></i>
+                                    <a href="#"><img src="{% static 'food/images/mainbg2.jpg' %}" alt="buy more"></a>
+                                    <div class="caption">
+                                        <h5>Beats(1)</h5>
+                                        <h4> <a class="btn" href="#">View</a><span class="pull-right">$2.0 </span></h4>
+                                    </div>
+                                    </div>
+                            </li>
+
+
+                                <li class="col-lg-3">
+                                <div class="thumbnail">
+                                    <i class="tag"></i>
+                                    <a href="#"><img src="{% static 'food/images/mainbg1.jpg' %}" alt="buy more"></a>
+                                    <div class="caption">
+                                        <h5>Beats(1)</h5>
+                                        <h4> <a class="btn" href="#">View</a><span class="pull-right">$2.0 </span></h4>
+                                    </div>
+                                    </div>
+                            </li>
+
+                                <li class="col-lg-3">
+                                <div class="thumbnail">
+                                    <i class="tag"></i>
+                                    <a href="#"><img src="{% static 'food/images/mainbg4.jpg' %}" alt="buy more"></a>
+                                    <div class="caption">
+                                        <h5>Beats(1)</h5>
+                                        <h4> <a class="btn" href="#">View</a><span class="pull-right">$2.0 </span></h4>
+                                    </div>
+                                    </div>
+                            </li>
+
+                            </ul>
+                        </div>
+                    </div>
+
+ <a class="left carousel-control" href="#featured" data-slide="prev"> <span class="glyphicon glyphicon-chevron-left"></span></a>
+        <a class="right carousel-control" href="#featured" data-slide="next"> <span class="glyphicon glyphicon-chevron-right"></span></a>
+
+                </div>
+                </div>
+    </div>
+
+    </div>
+
+</div>
+
+
+
+
+    </div>
+
+
+
+<!--ss
+        <a href="{% url 'food:fruits' %}">
+
+        <div class="col-12 fixed-bg" style="background-color:blue; height:300px;width:100%">
+
+        </div>
+        </a>-->
+
+
+
+<div>
+
+
+
+
+
+    <div class="col-lg-12 mt-5" id="slider-div6" >
+        <div class="owl-carousel owl-theme" style="z-index:1;">
+                {% for album in product %}
+                         {% if album.price <= 42 and album.price >= 34 %}
+
+    <div class="item"  > <a href="{% url 'food:detail' album.id %}">
+
+                            <img src="{{ album.logo.url }}" class="img-responsive img-fluid" style="height:200px; ">
+                        </a>
+    </div>
+            {% endif %}
+            {% endfor %}
+
+
+</div>
+    </div>
+
+
+
+             <div class="col-lg-12">
+    <div class="well well-small">
+       <h5>Featured Vegetables and Fruits,,<small class="pull-right"> Price greater then rs 60</small></h5>
+        <div class=row-fluid">
+
+ <div class="container-fluid mt-5" id="slider-div4" style="margin-top:00px;">
+        <div class="owl-carousel owl-theme" >
+                {% for album in product %}
+                         {% if album.price >= 62 %}
+
+    <div class="item"  > <a href="{% url 'food:detail' album.id %}">
+
+                            <img src="{{ album.logo.url }}" class="img-responsive img-fluid" style="height:200px; ">
+                        </a>
+    <div style="text-align:center;">
+        <h5 class="lea">{{ album.name }}<small>({{ album.nick_names }})</small></h5>
+
+    </div>
+    </div>
+
+            {% endif %}
+            {% endfor %}
+
+
+</div>
+    </div>
+
+                </div>
+    </div>
+
+    </div>
+
+
+
+</div>
+
+<!--
+                 <div class="col-lg-12">
+    <div class="well well-small">
+       <h4>featured Fruits,,<small class="pull-right"> many fruits</small></h4>
+            <div id="featured3" class="carousel slide" data-interval="3000" data-ride="carousel" >
+                  <ol class="carousel-indicators">
+        <li data-target="#featured3" data-slide-to="0" class="active"></li>
+        <li data-target="#featured3" data-slide-to="1"></li>
+        <li data-target="#featured3" data-slide-to="1"></li>
+
+    </ol>
+
+                <div class="carousel-inner">
+                <div >
+
+                        <ul class="thumbnails">
+
+
+
+                            <li   class="item active">
+                                <div class="m-container col-lg-4">
+                                      <div class="box">
+
+                                         </div>
+                                 </div>
+                            </li>
+
+                           <li   class="item">
+                               <div class="m-container col-lg-4 "  style="height:400px;">
+                              <div class="box">
+
+                                  </div>
+                              </div>
+                            </li>
+
+
+                            <li class="item ">
+                               <div class="m-container col-lg-4">
+                                <div class="box">
+
+                                 </div>
+                                 </div>
+                            </li>
+
+
+                        </ul>
+                </div>
+
+
+                    </div>
+
+ <a class="left carousel-control" href="#featured3" data-slide="prev"> <span class="glyphicon glyphicon-chevron-left"></span></a>
+        <a class="right carousel-control" href="#featured3" data-slide="next"> <span class="glyphicon glyphicon-chevron-right"></span></a>
+
+
+                </div>
+    </div>
+
+    </div>
+
+-->
+
+
+
+
+<!--
+        <div class="col-lg-12">
+            <div class="m-container ">
+            <div class="box">
+
+            </div>
+            </div>
+        </div>
+-->
+
+</div>
+
+    </div>
+
+
+
+
+   {% endblock %}
+
+
+    {% block bases %}
+
+    <script src="{% static 'food/owl.carousel.min.js' %}"></script>
+    <script>
+        $('.owl-carousel').owlCarousel({
+    loop:true,
+    margin:10,
+    nav:false,
+    dots:true,
+    autoplay:true,
+
+    responsive:{
+        0:{
+            items:1
+        },
+        600:{
+            items:3
+        },
+        1000:{
+            items:5
+        }
+    }
+})
+
+
+// Activate Carousel
+$("#myCarousel").carousel();
+
+// Enable Carousel Indicators
+$(".item").click(function(){
+  $("#myCarousel").carousel(1);
+});
+
+// Enable Carousel Controls
+$(".left").click(function(){
+  $("#myCarousel").carousel("prev");
+});
+    </script>
+{% endblock %}

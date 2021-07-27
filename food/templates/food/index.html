@@ -1,0 +1,74 @@
+{% extends 'food/base.html' %}
+
+
+
+{% block albums_active %}active{% endblock %}
+
+{% block body %}
+
+{% if vtype %}
+<h2>my name is veg</h2>
+{{ type }}
+    {% else %}
+<h2>my name is fruit</h2>
+{% endif %}
+<div class="albums-container container-fluid">
+
+    <!-- Albums -->
+    <div class="row">
+        <div class="col-sm-12" >
+            <h3>{{ user.username }}'s Albums </h3>
+        </div>
+
+
+        {% if album %}
+
+        {% for food in album.product_set.all %}
+
+        {% if food.available == True %}
+                   <div class="col-sm-4 col-lg-3">
+                    <div class="thumbnail">
+                        <!--here i ahe used if statenetn becouse in index view we have to display particular category of fruit or vegtables if vtype means the requet is from veg olumn and fyype means requst from fruit table -->
+                            <a href="{% url 'food:detail' food.id %}">
+                    <div style="overflow:hidden; " class="i-area">
+                            <img src="{{ food.logo.url }}" class="img-responsive" style="height:200px; width:100%;">
+                    </div>
+                        </a>
+
+                        <div class="caption">
+                            <h2>{{ food.name }}<small> ({{ food.nick_names }})</small></h2><small class="pull-right lead"><s>Rs: {{ food.b_price }}</s><br>  Rs: {{ food.price }}/{{ food.weight}} </small>
+                            <h4>{{ album.descriptio }}  </h4>
+
+                            <!-- View Details --
+>
+
+                           <a href="{% url 'food:detail' album.id %}" class="btn btn-primary btn-sm" role="button">View Details</a>!>-->
+<br>
+
+                                      <form action="{% url 'food:cart_add' food.id %}" method="post">
+                                {% csrf_token %}
+                                {{ cart_product_form }}<br>
+                                <input type="submit" value="add to cart" class="btn btn-primary">
+                            </form>
+
+
+                            <!-- Delete Album -->
+
+
+                        </div>
+                    </div>
+                </div>
+        {% endif %}
+{% endfor %}
+
+                {% cycle '' '' '' '' '' '<div class="clearfix visible-lg"></div>' %}
+        {% else %}
+            <div class="col-sm-12">
+                <br>
+                not any album
+            </div>
+        {% endif %}
+    </div>
+</div>
+
+    {% endblock %}

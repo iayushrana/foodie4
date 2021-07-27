@@ -1,0 +1,17 @@
+{% extends 'food/base.html' %}
+{% load static %}
+{% block title %}
+    Your Shopping Cart| Thank you
+{% endblock %}
+
+{% block body %}
+    <div class="container" style="min-height:400px;">
+        <div class="row" style="margin-top: 6%">
+            <div class="col-md-8 col-md-offset-2" style="min-height:350px;">
+                <h3 class="page-header ">Thank You For Shopping With Us
+                </h3>
+                <p class="lead">Your order has been successfully completed. Your order ID is <strong>{{ order.id }}</strong>.<br> Ordered will be delivered within  1 to 2 Hour .So we will contact u Soon,,</p>
+            </div>
+        </div>
+    </div>
+{% endblock %}
